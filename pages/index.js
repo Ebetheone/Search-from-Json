@@ -3,6 +3,7 @@ import "smart-webcomponents-react/source/styles/smart.default.css";
 import styles from "../styles/Home.module.css";
 import { useCallback, useState } from "react";
 import { Button, Modal, InputNumber } from "antd";
+import HashLoader from "react-spinners/HashLoader";
 
 export async function getServerSideProps() {
   // Fetch data from external API
@@ -13,7 +14,7 @@ export async function getServerSideProps() {
 //Dynamically import the Smart.Grid component
 const Grid = dynamic(() => import("smart-webcomponents-react/grid"), {
   ssr: false, //no server-side rendering
-  loading: () => <p>Loading...</p>,
+  loading: () => <HashLoader color="#36d7b7" />,
 });
 
 function Home({ data }) {
